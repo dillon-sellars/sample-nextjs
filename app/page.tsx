@@ -1,42 +1,9 @@
-import Image from 'next/image'
+import Greeting from "@/components/greeting";
+import Image from "next/image";
 
-const greetings = [
-  "Hello",
-  "Bonjour",
-  "Hola",
-  "Ciao",
-  "Hallo",
-  "Hej",
-  "Ahoj",
-  "Kamusta",
-  "Namaste",
-  "Salaam",
-  "Merhaba",
-  "Sveiki",
-  "Salut",
-  "Konnichiwa",
-  "Szia",
-  "Olá",
-  "Zdravstvuyte",
-  "Aloha",
-  "Shalom",
-  "Jambo",
-  "Sawubona",
-];
+export const dynamic = "force-dynamic";
 
-// function that returns random greeting
-function getGreeting() {
-  return greetings[Math.floor(Math.random() * greetings.length)];
-}
-  
 export default function Home() {
-  const greeting = getGreeting();
-  // const [greeting, setGreeting] = React.useState("");
-
-  // useEffect(() => {
-  //   setGreeting(getGreeting());
-  // }, []);
-
   return (
     <div className="min-h-screen lg:flex text-lg">
       {/* left side */}
@@ -44,14 +11,14 @@ export default function Home() {
         <h2 className="inter text-4xl mb-3 font-bold text-gray-800">
           Welcome to Your Next.js App{" "}
           <span className="block text-blue-500 text-2xl font-normal">
-            Deployed to DigitalOcean
+            Deployed to DigitalOcean ???
           </span>
         </h2>
 
         <p className="text-gray-700 mb-6">
-          {greeting}
+          <Greeting />
         </p>
-        
+
         <p className="text-gray-700 mb-6">
           Deploy API routes, static frontend, databases, and more.
         </p>
