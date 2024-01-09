@@ -1,6 +1,6 @@
 name: sample-nextjs
 services:
-- build_command: pnpm run build
+- build_command: npm run build
   environment_slug: node-js
   github:
     branch: main
