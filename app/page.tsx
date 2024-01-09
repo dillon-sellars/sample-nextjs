@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import React, { useEffect } from 'react';
 
 const greetings = [
   "Hello",
@@ -31,11 +30,12 @@ function getGreeting() {
 }
   
 export default function Home() {
-  const [greeting, setGreeting] = React.useState(undefined);
+  const greeting = getGreeting();
+  // const [greeting, setGreeting] = React.useState("");
 
-  useEffect(() => {
-    setGreeting(getGreeting());
-  }, []);
+  // useEffect(() => {
+  //   setGreeting(getGreeting());
+  // }, []);
 
   return (
     <div className="min-h-screen lg:flex text-lg">
@@ -83,7 +83,7 @@ export default function Home() {
         </svg>
 
         <Image
-          src="background.jpg"
+          src="/background.jpg"
           width={1517}
           height={1200}
           alt="Ocean Image"
