@@ -1,6 +1,42 @@
 import Image from 'next/image'
+import React, { useEffect } from 'react';
 
+const greetings = [
+  "Hello",
+  "Bonjour",
+  "Hola",
+  "Ciao",
+  "Hallo",
+  "Hej",
+  "Ahoj",
+  "Kamusta",
+  "Namaste",
+  "Salaam",
+  "Merhaba",
+  "Sveiki",
+  "Salut",
+  "Konnichiwa",
+  "Szia",
+  "Olá",
+  "Zdravstvuyte",
+  "Aloha",
+  "Shalom",
+  "Jambo",
+  "Sawubona",
+];
+
+// function that returns random greeting
+function getGreeting() {
+  return greetings[Math.floor(Math.random() * greetings.length)];
+}
+  
 export default function Home() {
+  const [greeting, setGreeting] = React.useState(undefined);
+
+  useEffect(() => {
+    setGreeting(getGreeting());
+  }, []);
+
   return (
     <div className="min-h-screen lg:flex text-lg">
       {/* left side */}
@@ -12,6 +48,10 @@ export default function Home() {
           </span>
         </h2>
 
+        <p className="text-gray-700 mb-6">
+          {greeting}
+        </p>
+        
         <p className="text-gray-700 mb-6">
           Deploy API routes, static frontend, databases, and more.
         </p>
@@ -44,6 +84,8 @@ export default function Home() {
 
         <Image
           src="background.jpg"
+          width={1517}
+          height={1200}
           alt="Ocean Image"
           className="lg:absolute object-cover lg:inset-y-0 lg:right-0 lg:h-full lg:w-full"
         />
